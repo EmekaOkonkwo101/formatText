@@ -2,7 +2,6 @@ package formatText
 
 import (
 	"fmt"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -36,7 +35,24 @@ func GetNumberInAmountFormat(n string) string {
 	numInt := int(numFloat)
 
 	number := fmt.Sprintf("%d", numInt)
-	re := regexp.MustCompile(`(\d)(?=(\d{3})+(?!\d))`)
-	return re.ReplaceAllString(number, "$1,")
+	nLen := len(number)
+	if nLen <= 3 {
+		return number
+	}
+	var result strings.Builder
+	pre := nLen % 3
+	if pre > 0 {
+		result.WriteString(number[:pre])
+		if nLen > pre {
+			result.WriteString(",")
+		}
+	}
+	for i := pre; i < nLen; i += 3 {
+		result.WriteString(number[i : i+3])
+		if i+3 < nLen {
+			result.WriteString(",")
+		}
+	}
+	return result.String()
 }
 
