@@ -1,15 +1,9 @@
-Sure! Here's a well-structured **README** description for your package:
-
----
-
-# **formatText**
-
 ## 🚀 Overview
 `formatText` is a lightweight Go package designed to provide text formatting utilities, including bold text conversion using Unicode characters. This package is ideal for developers who need **consistent, reusable** text styling across multiple projects.
 
 ## ✨ Features
 - Convert plain text to **bold Unicode characters**.
-- Convert number string to number string with decimals.
+- Convert a string of numbers to a string of numbers with decimals.
 - Easily reusable in any Go project.
 - Best used when passing test over HTTP requests.
 - Designed for **simplicity and efficiency**.
